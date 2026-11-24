@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>照明设备接线 · 电工练习台</title>
+<link rel="stylesheet" href="bench.css">
+</head>
+<body>
+<header><div class="brand"><span class="logo" aria-hidden="true">ϟ</span>电工练习台</div><button id="reference">▧　参考图</button></header>
+<main>
+<div class="heading"><div><small>低压电工实操　 /　 照明设备接线</small><h1>单相电能表带照明设备接线</h1></div><label>选择考题 <select id="taskSelect" aria-label="选择考题"></select></label></div>
+<div class="layout">
+<section class="bench"><div class="bar"><h2>接线工作台</h2><div class="zoom"><button id="minus" aria-label="缩小">−</button><output id="percent">100%</output><button id="plus" aria-label="放大">＋</button><button id="fit">全板</button></div></div>
+<svg id="board" viewBox="-96 0 874 550" aria-label="板外电源与照明训练板，滚轮缩放，拖动空白处平移"></svg>
+<div class="tools"><label>导线 <select id="color" aria-label="导线颜色"><option value="#d6a329">黄色</option><option value="#378160">绿色</option><option selected value="#ce4a3e">红色</option><option value="#326cc7">蓝色</option><option value="#659142">黄绿双色</option><option value="#62666b">灰色</option></select></label><label><select id="size" aria-label="导线截面积"><option>1.5 mm²</option><option>2.5 mm²</option><option>4.0 mm²</option></select></label><button id="undo">撤销</button><button id="remove">拆线</button><button id="inspect">断电自检</button><button id="cancel" hidden>取消接线</button></div>
+<div class="message" id="message" role="status"></div></section>
+<aside>
+<section><small>本次任务</small><h2>安装并验证三条用电回路</h2><p>QF1 为总闸，QF2 供插座，QF3 供双控灯和 S3 日光灯。按题图接线，送电后分别操作并核查各支路。</p><button id="power" class="primary">接通台面电源</button><div class="status"><span id="powerState">电源已断</span><span id="lampState">灯灭</span></div></section>
+<section><h2>供电与支路状态</h2><div id="feed"></div><small>电能表按模拟灯泡 40 W、日光灯 36 W 累计电量。锡焊点的两端内部连通。</small></section>
+<section><div class="row"><h2>双控灯验证</h2><small id="count">0 / 4</small></div><p>送电后拨动板上 S1、S2，观察四种位置组合。</p>
+<table><thead><tr><th>S1 位置</th><th>S2 位置</th><th>实测灯态</th></tr></thead><tbody id="matrix"></tbody></table><p id="result" role="status"></p></section>
+<section><button id="hint" class="subtle">☼　给我一点提示</button><p id="hintText" hidden></p></section>
+</aside></div></main>
+<dialog id="refs"><div class="bar"><h2>参考图</h2><button id="close">关闭</button></div><div class="tabs" id="refTabs"></div><a id="refFull" target="_blank" rel="noopener" title="单独打开原图，可与练习台并排查看"><img id="refImage" alt="试题原理图"></a></dialog>
+<script src="exercises.js"></script><script src="training-board.js"></script><script src="board.js"></script><script src="circuit.js"></script><script src="routing.js"></script><script src="training-circuit.js"></script><script src="training-ui.js"></script><script src="bench.js"></script>
+</body></html>
